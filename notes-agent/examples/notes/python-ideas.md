@@ -1,0 +1,3 @@
+- learn list comprehensions
+- build a notes agent in Python
+- try the unittest module
