@@ -59,13 +59,22 @@ src/shorts/
   graph.py         # builds and compiles the graph
   run.py           # CLI entry: python -m shorts.run input/x.txt [--plan p.json]
   nodes/           # director.py validate.py narrate.py render.py compose.py
-  render/          # poses.py figure.py scene.py captions.py bubbles.py
+  render/          # drawing, all deterministic:
+                   #   scene.py     picks a layout and draws one frame
+                   #   layouts.py   one render function per scene layout
+                   #   poses.py figure.py   pose library + stick figure
+                   #   captions.py bubbles.py props.py   text, bubbles, prop catalog
+                   #   moves.py     timed keyframe moves (run, flop, punch, ...)
+                   #   action.py    draws "action" scenes (trails, impact flash, shake)
+                   #   choreo.py    builds and checks fight choreography
+                   #   motion.py    easing helpers
+                   #   sheets.py    debug contact sheets (output/debug/*.png)
 config/style.json  # single source of truth for the look
 assets/fonts/      # caption font (.ttf)
 assets/voices/     # Piper voice model
 input/             # transcripts
 output/<run_id>/   # plan.json, audio/, short.mp4, debug/
-tests/             # fixtures/plan_example.json + one test per node
+tests/             # fixtures/plan_*.json + one test per node, move and rule
 ```
 
 ## Skills in this project

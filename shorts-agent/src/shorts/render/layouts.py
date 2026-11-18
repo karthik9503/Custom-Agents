@@ -140,17 +140,21 @@ def draw_big_number(r: SceneRenderer, img: Image.Image, t: float) -> None:
     ImageDraw.Draw(img).text((r.center_x, cy), format_number(number * p, number),
                              font=font, fill=r.ink, anchor="mm")
 
+    text_bottom = cy + font.size / 2
     if r.scene.get("unit"):
         label = _fit_label(r, r.scene["unit"], cfg["unit_size_px"], r.safe_w)
-        r.paste_center(img, label, r.center_x, cy + font.size / 2 + r.gap + label.height / 2)
+        r.paste_center(img, label, r.center_x, text_bottom + r.gap + label.height / 2)
+        text_bottom += r.gap + label.height
 
     fig = r.style["figure"]
     height = int(fig["height_px"] * cfg["figure_scale"])
-    ground = int(r.height * fig["ground_y"])
     for k, c in enumerate(r.scene["characters"]):
-        # Small, off to the left side, so the number stays the star.
+        # Small, off to the left side, so the number stays the star. A wide unit
+        # spans the left side too, so stand low enough that raised hands clear it.
         cx = r.left + height * 0.5
-        r.draw_figure(img, c, k, cx, ground, height, t)
+        clear = text_bottom + r.gap + _pose_reach(r, c) * height
+        ground = min(max(r.height * fig["ground_y"], clear), r.bottom - r.gap)
+        r.draw_figure(img, c, k, cx, int(ground), height, t)
 
 
 def draw_versus(r: SceneRenderer, img: Image.Image, t: float) -> None:

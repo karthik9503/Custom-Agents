@@ -85,6 +85,23 @@ def test_count_up_ends_on_the_number():
     assert not np.array_equal(early, static)
 
 
+def test_big_number_figure_clears_a_wide_unit():
+    # Regression: a long unit spans the left side, where the small figure stands;
+    # raised hands (cheer) used to cut into the unit text.
+    base = {"narration": "x", "caption": "*23* years", "background": "night",
+            "layout": "big_number", "number": 23}
+
+    def rows_differing(a: dict, b: dict) -> np.ndarray:
+        fa, fb = (SceneRenderer(Scene.model_validate(s).model_dump(), 2.0, STYLE).frame_at(0) for s in (a, b))
+        return np.nonzero((fa != fb).any(axis=(1, 2)))[0]
+
+    with_unit = {**base, "unit": "years unbeaten"}
+    unit_rows = rows_differing(with_unit, base)
+    figure_rows = rows_differing({**with_unit, "characters": [{"id": "a", "pose": "cheer"}]}, with_unit)
+    assert figure_rows.min() > unit_rows.max()
+    assert figure_rows.max() < SHAPE[0] * (1 - STYLE["safe_zone"]["bottom"])  # still in the safe zone
+
+
 def test_bubble_waits_for_enter_left(plan):
     r = SceneRenderer(plan["scenes"][2], 2.0, STYLE)  # dialogue + enter_left + bubble
     assert r.entering(0.0) == 0 and r.entering(r.duration) == 1

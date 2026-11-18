@@ -58,6 +58,26 @@ that turns a transcript into a 10–20 second stick-figure short, using Claude C
 **Milestone 4 — polish**
 > Build milestone 4: idle animation and caption pop-in as described in video-style.
 
+**Milestone 5 — variety**
+> Build milestone 5: scene layouts (dialogue, closeup, big_number, versus, timeline),
+> in-scene actions (enter_left, pose_change, pop, count_up) and a small prop catalog.
+> One render function per layout, picked from a dict. Validate that every video uses
+> at least 3 layouts and never the same layout twice in a row. Render a layout contact
+> sheet at `output/debug/layouts.png` and show it to me.
+
+**Milestone 6 — action**
+> Build milestone 6 in its four parts (see CLAUDE.md): a move library with easing and
+> motion paths (test: the Fosbury flop), fighting moves with impact effects and a sword,
+> an `action` layout with timed moves per character and checked choreography, and the
+> director's `audio_mode` choice (narrated, silent, mixed). Add a test per move and
+> rule, then render `input/fosbury.txt` and `input/fight.txt`.
+
+## Status
+
+All six milestones are built and tested (`pytest -q`). Sample transcripts in
+`input/` cover each audio mode: narrated (`example`, `shark`, `octopus`), mixed
+(`fosbury`, `long_jump`) and silent (`fight`, `rooftop_rivals`).
+
 ## Changing the style
 
 The style is split in two on purpose:
