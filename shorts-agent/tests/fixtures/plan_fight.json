@@ -1,0 +1,16 @@
+{"title": "Rooftop duel", "audio_mode": "silent", "scenes": [
+ {"background": "night", "layout": "action",
+  "characters": [
+   {"id": "a", "pose": "stand", "x": 0.2, "facing": "right", "moves": [
+     {"move": "stance", "at": 0.0}, {"move": "run", "at": 0.4, "to_x": 0.42},
+     {"move": "punch", "at": 1.1}, {"move": "dodge", "at": 2.0}, {"move": "hit_react", "at": 2.87}]},
+   {"id": "b", "pose": "stand", "x": 0.62, "facing": "left", "color": "accent", "moves": [
+     {"move": "stance", "at": 0.0}, {"move": "block", "at": 1.2}, {"move": "kick", "at": 1.9}, {"move": "punch", "at": 2.7}]}]},
+ {"background": "night", "layout": "action",
+  "characters": [
+   {"id": "a", "pose": "stand", "x": 0.4, "facing": "right", "moves": [
+     {"move": "stance", "at": 0.0}, {"move": "kick", "at": 0.6}, {"move": "punch", "at": 1.6}]},
+   {"id": "b", "pose": "stand", "x": 0.58, "facing": "left", "color": "accent", "moves": [
+     {"move": "stance", "at": 0.0}, {"move": "hit_react", "at": 0.82}, {"move": "knockback", "at": 1.77},
+     {"move": "get_up", "at": 3.0}]}]}
+]}

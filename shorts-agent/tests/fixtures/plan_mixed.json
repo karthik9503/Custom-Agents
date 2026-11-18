@@ -1,0 +1,12 @@
+{"title": "The first perfect 10", "audio_mode": "mixed", "scenes": [
+ {"narration": "In 1976, the scoreboard couldn't even show a perfect score.",
+  "caption": "No room for *10*", "background": "white", "layout": "closeup",
+  "characters": [{"id": "a", "pose": "think"}]},
+ {"background": "sky", "layout": "action",
+  "characters": [{"id": "a", "pose": "stand", "x": 0.2, "moves": [
+     {"move": "run", "at": 0.2, "to_x": 0.45}, {"move": "jump", "at": 0.9}, {"move": "backflip", "at": 2.0}]}]},
+ {"narration": "Then Nadia Comaneci landed it, and the board read one point zero zero.",
+  "caption": "*1.00*?!", "background": "night", "layout": "big_number",
+  "action": "count_up", "number": 10, "unit": "first perfect 10",
+  "characters": [{"id": "a", "pose": "cheer"}]}
+]}

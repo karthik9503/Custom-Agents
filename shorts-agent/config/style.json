@@ -1,0 +1,83 @@
+{
+  "canvas": { "width": 1080, "height": 1920, "fps": 30 },
+  "safe_zone": { "top": 0.12, "bottom": 0.20, "left": 0.06, "right": 0.14 },
+  "colors": {
+    "ink": "#1A1A1A",
+    "ink_on_night": "#F5F5F0",
+    "accent": "#FF7A1A",
+    "backgrounds": { "white": "#FAFAF7", "sky": "#DCEEFB", "night": "#1E2235" }
+  },
+  "figure": {
+    "height_px": 520,
+    "line_width": 14,
+    "head_ratio": 0.13,
+    "ground_y": 0.72,
+    "idle_period_s": 1.6,
+    "idle_lift": 0.015,
+    "supersample": 2
+  },
+  "caption": {
+    "font": "assets/fonts/caption-bold.ttf",
+    "size_px": 96,
+    "y": 0.30,
+    "max_lines": 2,
+    "line_spacing": 1.1,
+    "pop_in_frames": 6
+  },
+  "bubble": {
+    "font": "assets/fonts/caption-bold.ttf",
+    "size_px": 48,
+    "max_chars": 40,
+    "max_width_ratio": 0.7,
+    "padding_px": 28,
+    "radius_px": 32
+  },
+  "props": {
+    "size_ratio": { "small": 0.4, "medium": 0.65, "large": 1.0 }
+  },
+  "layouts": {
+    "big_number": { "y": 0.44, "size_px": 280, "unit_size_px": 72, "figure_scale": 0.6 },
+    "versus": { "y": 0.56, "label_size_px": 64, "badge_radius_px": 64 },
+    "timeline": { "y": 0.62, "label_size_px": 56, "tick_px": 28 }
+  },
+  "action": {
+    "figure_scale": 0.6,
+    "hold_s": 0.6,
+    "trail_frames": 3,
+    "trail_alpha": 0.4,
+    "guard_bob": 0.02,
+    "guard_period_s": 0.6,
+    "sword": { "length": 0.55, "guard": 0.07 },
+    "impact": { "flash_frames": 6, "flash_radius": 0.3, "flash_spikes": 8, "shake_frames": 7, "shake_px": 10 }
+  },
+  "actions": {
+    "enter_s": 0.6,
+    "pose_change_at": 0.35,
+    "pose_change_s": 0.4,
+    "pop_s": 0.35,
+    "pop_stagger_s": 0.35,
+    "count_up_share": 0.7,
+    "timeline_share": 0.6
+  },
+  "timing": {
+    "min_total_s": 10,
+    "max_total_s": 20,
+    "min_scene_s": 2,
+    "max_scene_s": 5,
+    "pad_after_narration_s": 0.35,
+    "words_per_second": 2.5
+  },
+  "voice": {
+    "engine": "piper",
+    "piper_model": "assets/voices/en_US-lessac-medium.onnx",
+    "fallback": "pyttsx3"
+  },
+  "music": {
+    "path": null,
+    "volume": 0.12,
+    "fade_out_s": 1.0
+  },
+  "debug": {
+    "safe_zone_color": "#FF3B30"
+  }
+}

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shorts-agent"
+version = "0.1.0"
+description = "LangGraph agent that turns a transcript into a stick-figure short"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# Lets tests import `shorts` even without `pip install -e .`.
+pythonpath = ["src"]
+testpaths = ["tests"]
+# MoviePy 2.2 triggers a NumPy 2.5 deprecation inside its own reader; not our code.
+filterwarnings = ["ignore:Setting the shape on a NumPy array:DeprecationWarning:moviepy"]

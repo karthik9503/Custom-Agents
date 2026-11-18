@@ -1,0 +1,21 @@
+{
+  "title": "Why do we yawn?",
+  "scenes": [
+    {"narration": "Ever wondered why you yawn so much?",
+     "caption": "Why do we *yawn*?", "background": "night", "layout": "closeup",
+     "characters": [{"id": "a", "pose": "think"}]},
+    {"narration": "It's not because you're bored.",
+     "caption": "Not *boredom*", "background": "white", "layout": "versus", "action": "pop",
+     "props": [{"kind": "question", "label": "Bored?"}, {"kind": "brain", "label": "Too hot?"}]},
+    {"narration": "Scientists think a yawn pulls in cool air to chill your brain.",
+     "caption": "Brain *cooling*", "background": "sky", "layout": "dialogue",
+     "action": "enter_left",
+     "characters": [{"id": "a", "pose": "stand", "x": 0.3, "facing": "right"},
+                    {"id": "b", "pose": "point", "x": 0.65, "facing": "left",
+                     "says": "Cool air in!"}]},
+    {"narration": "So a yawn is basically your brain's air conditioner.",
+     "caption": "Brain AC", "background": "white", "layout": "closeup",
+     "action": "pose_change",
+     "characters": [{"id": "a", "pose": "think", "end_pose": "point"}]}
+  ]
+}

@@ -1,0 +1,9 @@
+langgraph
+pydantic>=2
+pillow
+numpy
+moviepy>=2
+soundfile
+piper-tts
+pyttsx3
+pytest
