@@ -73,6 +73,7 @@ tools filled in), so it is passed as a string. The full conversation is sent thr
 ```python
 cmd = [
     "claude", "-p",
+    "--safe-mode",                                # no CLAUDE.md, skills, hooks or MCP
     "--system-prompt", system,                    # replace Claude Code's default prompt
     "--output-format", "json",                    # reply text is in data["result"]
     "--no-session-persistence",                   # each call is stateless, like an API
@@ -83,8 +84,11 @@ subprocess.run(cmd, input=transcript, capture_output=True, text=True,
                encoding="utf-8", timeout=120, cwd=RUNTIME_DIR)
 ```
 
-- `cwd=RUNTIME_DIR` (an empty `.runtime/` folder) stops the agent's `claude -p` from loading
-  this repo's CLAUDE.md, which is meant for Claude Code, not for the Notes Assistant.
+- `--safe-mode` stops the agent's `claude -p` from loading this repo's CLAUDE.md, which is
+  meant for Claude Code, not for the Notes Assistant. Running in `.runtime/` alone is NOT
+  enough: Claude Code also searches parent folders for CLAUDE.md. `--safe-mode` keeps the
+  Pro login working.
+- `cwd=RUNTIME_DIR` (an empty `.runtime/` folder) is just a scratch folder outside `src/`.
 - Do NOT add `--bare`: it does not use the Pro login.
 - Each call takes a few seconds. That's expected.
 

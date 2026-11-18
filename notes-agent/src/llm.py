@@ -6,8 +6,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# An empty working folder, so `claude -p` doesn't load this repo's CLAUDE.md
-# (those instructions are for Claude Code, not for the Notes Assistant).
+# An empty scratch folder to run `claude -p` in, so it never works inside the repo itself.
 RUNTIME_DIR = ROOT / ".runtime"
 TIMEOUT_SECONDS = 120
 
@@ -21,6 +20,9 @@ def ask_model(system: str, transcript: str) -> str:
 
     cmd = [
         claude, "-p",                  # print mode: answer once and exit, no chat UI
+        # Skip CLAUDE.md, skills, hooks and MCP. Claude Code searches parent folders for
+        # CLAUDE.md, so running in .runtime/ alone still loaded this repo's file.
+        "--safe-mode",
         "--system-prompt", system,     # replace Claude Code's own prompt with ours
         "--output-format", "json",     # wrap the reply in JSON so we can read it reliably
         "--no-session-persistence",    # stateless, like an API: we send the full history
